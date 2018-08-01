@@ -1,0 +1,43 @@
+]
+tom_perrine@instance-2:~/libuv$ sudo apt-get install gnum4
+tom_perrine@instance-2:~/libuv$ sudo apt-get install m4
+tom_perrine@instance-2:~/libuv$ sh autogen.sh
+tom_perrine@instance-2:~/libuv$ sudo apt-get install automake
+tom_perrine@instance-2:~/libuv$ sh autogen.sh
+tom_perrine@instance-2:~/libuv$ make
+tom_perrine@instance-2:~/libuv$ ./configure
+tom_perrine@instance-2:~/libuv$ make
+tom_perrine@instance-2:~/libuv$ sudo make install
+tom_perrine@instance-2:~/libuv$ cd
+tom_perrine@instance-2:~$ git clone git://git.code.sf.net/p/dps8m/code dps8m-code
+tom_perrine@instance-2:~$ cd dps8m-code/src/dps8/
+tom_perrine@instance-2:~/dps8m-code/src/dps8$ git checkout rc7
+tom_perrine@instance-2:~/dps8m-code/src/dps8$ cd ../..
+tom_perrine@instance-2:~/dps8m-code$ pwd
+tom_perrine@instance-2:~/dps8m-code$ make
+tom_perrine@instance-2:~/dps8m-code$ sudo apt-get install clang
+tom_perrine@instance-2:~/dps8m-code$ sudo apt-get install clang-6.0
+tom_perrine@instance-2:~/dps8m-code$ sudo apt-get install gcc-6
+tom_perrine@instance-2:~/dps8m-code$ sudo apt-get install clang-6.0
+tom_perrine@instance-2:~/dps8m-code$ sudo apt-get install clang
+tom_perrine@instance-2:~/dps8m-code$ sudo apt update
+tom_perrine@instance-2:~/dps8m-code$ make
+tom_perrine@instance-2:~/dps8m-code$ ls -alstr
+tom_perrine@instance-2:~/dps8m-code$ cd src
+tom_perrine@instance-2:~/dps8m-code/src$ ls
+tom_perrine@instance-2:~/dps8m-code/src$ ./dps8
+tom_perrine@instance-2:~/dps8m-code/src$ cd dps8/
+tom_perrine@instance-2:~/dps8m-code/src/dps8$ ls
+tom_perrine@instance-2:~/dps8m-code/src/dps8$ ls -lstr
+tom_perrine@instance-2:~/dps8m-code/src/dps8$ ./dps8 
+tom_perrine@instance-2:~/dps8m-code/src/dps8$ 
+tom_perrine@instance-2:~/dps8m-code/src/dps8$ cd
+tom_perrine@instance-2:~$ unzip QuickStart_MR12.6e_rc7a1.zip
+tom_perrine@instance-2:~$ ls
+tom_perrine@instance-2:~$ apt install unzip
+tom_perrine@instance-2:~$ unzip QuickStart_MR12.6e_rc7a1.zip
+tom_perrine@instance-2:~$ cd QuickStart_MR12.6e_rc7a1/
+tom_perrine@instance-2:~/QuickStart_MR12.6e_rc7a1$ ../dps8m-code/src/dps8/dps8 MR12.6e
+i m_perrine@instance-2:~/QuickStart_MR12.6e_rc7a1$ ../dps8m-code/src/dps8/dps8 MR12.6e_boot.ini
+tom_perrine@instance-2:~/QuickStart_MR12.6e_rc7a1$ eit
+tom_perrine@instance-2:~/QuickStart_MR12.6e_rc7a1$ exit
