@@ -3,9 +3,17 @@
 #
 # use a smaller instance - remember, this can run on a Raspberry Pi2 as well
 # as the original (original 6180?) hardware
-# install times
-# f1-micro (1 vCPU, 0.6 GB memory) about 8 minutes to build/install, plus 3-4 min to boot Multics
-# g1-small (1vCPU, 1.7GB memory) 
+# time to run this script, except Multics boot...
+# f1-micro (1 vCPU, 0.6 GB memory):
+#    real    9m7.891s
+#    user    6m10.436s
+#    sys     1m23.556s
+# time to boot Multics: ~30 sec
+# g1-small (1 vCPU, 1.7 GB memory):
+#    real    3m58.415s
+#    user    2m11.966s
+#    sys     0m24.057s
+# time to boot multics: < 20 sec
 
 # if you don't do this then a lot of the application packages won't install properly
 # beside, its always a good idea to update+upgrade immediately after installation
