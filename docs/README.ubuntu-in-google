@@ -3,7 +3,9 @@
 #
 # use a smaller instance - remember, this can run on a Raspberry Pi2 as well
 # as the original (original 6180?) hardware
-# try a g1-small - 1vcpu, 
+# install times
+# f1-micro (1 vCPU, 0.6 GB memory) about 8 minutes to build/install, plus 3-4 min to boot Multics
+# g1-small (1vCPU, 1.7GB memory) 
 
 # if you don't do this then a lot of the application packages won't install properly
 # beside, its always a good idea to update+upgrade immediately after installation
@@ -49,6 +51,6 @@ unzip QuickStart_MR12.6e_rc7a1.zip
 cd QuickStart_MR12.6e_rc7a1/
 
 # watch in amazement as Multics boots
-~/dps8m-code/src/dps8/dps8 MR12.6e_boot.ini
+##~/dps8m-code/src/dps8/dps8 MR12.6e_boot.ini
 
 
