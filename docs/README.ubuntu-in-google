@@ -11,7 +11,7 @@ sudo apt-get --yes update
 sudo apt-get --yes upgrade
 
 # you will need these packages to build the emulator
-sudo apt-get --yes install build-essential libtool-bin m4 automake clang unzipXS
+sudo apt-get --yes install build-essential libtool-bin m4 automake clang unzip
 # clang is needed to build dps8
 # unzip is needed to unzip the Multics image
 
