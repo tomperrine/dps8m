@@ -1,43 +1,54 @@
-]
-tom_perrine@instance-2:~/libuv$ sudo apt-get install gnum4
-tom_perrine@instance-2:~/libuv$ sudo apt-get install m4
-tom_perrine@instance-2:~/libuv$ sh autogen.sh
-tom_perrine@instance-2:~/libuv$ sudo apt-get install automake
-tom_perrine@instance-2:~/libuv$ sh autogen.sh
-tom_perrine@instance-2:~/libuv$ make
-tom_perrine@instance-2:~/libuv$ ./configure
-tom_perrine@instance-2:~/libuv$ make
-tom_perrine@instance-2:~/libuv$ sudo make install
-tom_perrine@instance-2:~/libuv$ cd
-tom_perrine@instance-2:~$ git clone git://git.code.sf.net/p/dps8m/code dps8m-code
-tom_perrine@instance-2:~$ cd dps8m-code/src/dps8/
-tom_perrine@instance-2:~/dps8m-code/src/dps8$ git checkout rc7
-tom_perrine@instance-2:~/dps8m-code/src/dps8$ cd ../..
-tom_perrine@instance-2:~/dps8m-code$ pwd
-tom_perrine@instance-2:~/dps8m-code$ make
-tom_perrine@instance-2:~/dps8m-code$ sudo apt-get install clang
-tom_perrine@instance-2:~/dps8m-code$ sudo apt-get install clang-6.0
-tom_perrine@instance-2:~/dps8m-code$ sudo apt-get install gcc-6
-tom_perrine@instance-2:~/dps8m-code$ sudo apt-get install clang-6.0
-tom_perrine@instance-2:~/dps8m-code$ sudo apt-get install clang
-tom_perrine@instance-2:~/dps8m-code$ sudo apt update
-tom_perrine@instance-2:~/dps8m-code$ make
-tom_perrine@instance-2:~/dps8m-code$ ls -alstr
-tom_perrine@instance-2:~/dps8m-code$ cd src
-tom_perrine@instance-2:~/dps8m-code/src$ ls
-tom_perrine@instance-2:~/dps8m-code/src$ ./dps8
-tom_perrine@instance-2:~/dps8m-code/src$ cd dps8/
-tom_perrine@instance-2:~/dps8m-code/src/dps8$ ls
-tom_perrine@instance-2:~/dps8m-code/src/dps8$ ls -lstr
-tom_perrine@instance-2:~/dps8m-code/src/dps8$ ./dps8 
-tom_perrine@instance-2:~/dps8m-code/src/dps8$ 
-tom_perrine@instance-2:~/dps8m-code/src/dps8$ cd
-tom_perrine@instance-2:~$ unzip QuickStart_MR12.6e_rc7a1.zip
-tom_perrine@instance-2:~$ ls
-tom_perrine@instance-2:~$ apt install unzip
-tom_perrine@instance-2:~$ unzip QuickStart_MR12.6e_rc7a1.zip
-tom_perrine@instance-2:~$ cd QuickStart_MR12.6e_rc7a1/
-tom_perrine@instance-2:~/QuickStart_MR12.6e_rc7a1$ ../dps8m-code/src/dps8/dps8 MR12.6e
-i m_perrine@instance-2:~/QuickStart_MR12.6e_rc7a1$ ../dps8m-code/src/dps8/dps8 MR12.6e_boot.ini
-tom_perrine@instance-2:~/QuickStart_MR12.6e_rc7a1$ eit
-tom_perrine@instance-2:~/QuickStart_MR12.6e_rc7a1$ exit
+#
+# Begin with the Google standard Ubuntu 18.04 LTS (not the minimal)
+#
+# use a smaller instance - remember, this can run on a Raspberry Pi2 as well
+# as the original (original 6180?) hardware
+# try a g1-small - 1vcpu, 
+
+# if you don't do this then a lot of the application packages won't install properly
+# beside, its always a good idea to update+upgrade immediately after installation
+sudo apt-get --yes update
+sudo apt-get --yes upgrade
+
+# you will need these packages to build the emulator
+sudo apt-get --yes install build-essential libtool-bin m4 automake clang unzipXS
+# clang is needed to build dps8
+# unzip is needed to unzip the Multics image
+
+# install this libuv - not sure why, but it's from the Ubuntu readme
+# the system one would be
+# sudo apt-get install libuv1
+#
+cd
+git clone https://github.com/libuv/libuv.git
+cd libuv
+sh autogen.sh
+./configure
+make
+sudo make install
+
+# otherwise the DPS8 build will fail at link time on not
+# finding the libuv we just built and installed (into /usr/lib/local)
+sudo ldconfig
+
+
+# time to build the emulator
+cd
+git clone git://git.code.sf.net/p/dps8m/code dps8m-code
+cd dps8m-code
+make
+# you can run the emulator here with no args to verify that
+# it at least compiled correctly
+#cd
+#../dps8m-code/src/dps8/dps8
+
+# OK emulator smoke test OK, let's get some Multics
+cd
+wget https://sourceforge.net/projects/dps8m/files/QuickStart_MR12.6e_rc7a1/QuickStart_MR12.6e_rc7a1.zip
+unzip QuickStart_MR12.6e_rc7a1.zip
+cd QuickStart_MR12.6e_rc7a1/
+
+# watch in amazement as Multics boots
+~/dps8m-code/src/dps8/dps8 MR12.6e_boot.ini
+
+
